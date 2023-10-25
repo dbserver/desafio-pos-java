@@ -8,6 +8,8 @@ O Sistema Ponto de Venda (PoS - Point of Sale) simula um módulo de frente de ca
 
 ![Classes](classes.drawio.svg)
 
+![Classes](classes.drawio.png)
+
 ## Getting started
 
 ## Enunciado do desafio
