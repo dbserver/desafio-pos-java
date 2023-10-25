@@ -12,7 +12,7 @@ O Sistema Ponto de Venda (PoS - Point of Sale) simula um módulo de frente de ca
 
 ### Pré-requisitos
 
-- [Java SE Development Kit 11 ou superior](https://www.oracle.com/br/java/technologies/downloads/#java11)
+- [Java SE Development Kit 11](https://www.oracle.com/br/java/technologies/downloads/#java11) ou superior
 
 ### Workspace
 
