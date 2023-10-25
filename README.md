@@ -30,14 +30,19 @@ O workspace contém três diretórios padrão, sendo eles:
 
 #### 1. Via terminal de comandos
 
+Cria o diretório "bin" se ele já não existir
 ```bash
-# Cria o diretório "bin" se ele já não existir
-mkdir bin # Ou similar do SO
+mkdir bin
+```
+> [!NOTE]
+> O comando de criação de diretório pode variar dependendo do SO
 
-# Compila os arquivos de código fonte no diretório "bin"
+Compila os arquivos de código fonte no diretório "bin"
+```bash
 javac src/* -d "bin"
-
-# Executa a classe App (main) compilada dentro do diretório "bin"
+```
+Executa a classe App (main) compilada dentro do diretório "bin"
+```bash
 java -cp "bin" App
 ```
 
