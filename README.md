@@ -16,11 +16,21 @@ O Sistema Ponto de Venda (PoS - Point of Sale) simula um módulo de frente de ca
 
 ### Workspace
 
-O workspace contém três diretórios padrão, sendo eles:
+O workspace contém a seguinte estrutura:
 
+```shell
+.
+├── bin
+├── lib
+├── resources
+└── src
+    └── Utils
+```
+
+- `bin` - Local da *saída* da compilação
+- `lib` - Local das dependências de projeto
+- `resources` - Local de arquivos utilitários (ex.: arquivos de dados)
 - `src` - Local dos arquivos de código fonte da codebase
-- `lib` - Local das dependências de projeto 
-- `bin` - Local da *saída* da compilação 
 
 > [!NOTE]
 > - `lib` não existirá se o projeto não tiver dependências
@@ -31,18 +41,18 @@ O workspace contém três diretórios padrão, sendo eles:
 #### 1. Via terminal de comandos
 
 Criar o diretório `bin` se ele já não existir
-```bash
+```shell
 mkdir bin
 ```
 > [!NOTE]
 > O comando de criação de diretório pode variar dependendo do SO
 
-Compilar os arquivos de código fonte no diretório `bin`
-```bash
-javac src/* -d "bin"
+Compilar os arquivos de código fonte de `src` para dentro do diretório `bin`
+```shell
+javac -cp "src" -d "bin" src/App.java
 ```
 Executar a classe `App` (main) compilada dentro do diretório `bin`
-```bash
+```shell
 java -cp "bin" App
 ```
 
