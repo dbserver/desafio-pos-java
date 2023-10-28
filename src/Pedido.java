@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import utils.InputReader;
 
 public class Pedido {
-  private static ArrayList<PedidoItem> itens = new ArrayList<PedidoItem>();
+  private static final ArrayList<PedidoItem> itens = new ArrayList<PedidoItem>();
 
   public static ArrayList<PedidoItem> getListaItens() {
     return itens;
