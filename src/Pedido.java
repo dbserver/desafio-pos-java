@@ -54,7 +54,7 @@ public class Pedido {
     }
 
     System.out.println("|----------------------------------------------------------------------|");
-    System.out.printf("| TOTAL %53s%-9.2f |\n", "R$", getValorTotal());
+    System.out.printf("| %59s%-9.2f |\n", "R$", getValorTotal());
     System.out.println("------------------------------------------------------------------------");
   }
 
