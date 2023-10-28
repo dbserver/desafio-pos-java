@@ -1,40 +1,36 @@
 import java.io.File;
 import java.util.ArrayList;
 
-import Utils.CsvReader;
+import utils.CsvReader;
 
 public class Estoque {
-  private static final String ProductLoadPath = App.ResourcesPath + File.separator + "Produtos.csv";
-  private static final String DefaultColumnSeparator = ",";
+  private static final String DiretorioCargaProdutos = App.DiretorioResources + File.separator + "Produtos.csv";
+  private static final String SeparadorColunasPadrao = ",";
 
-  private static final ArrayList<Produto> products = new ArrayList<Produto>();
+  private static final ArrayList<Produto> produtos = new ArrayList<Produto>();
 
   public static void inicializar() {
-    ArrayList<String[]> tempList = CsvReader.toArrayList(ProductLoadPath, DefaultColumnSeparator);
+    ArrayList<String[]> cargaProdutos = CsvReader.getArrayList(DiretorioCargaProdutos, SeparadorColunasPadrao);
 
-    for (String[] item : tempList.subList(1, tempList.size())) {
+    for (String[] dadosProduto : cargaProdutos.subList(1, cargaProdutos.size())) {
       cadastrarProduto(
-          Integer.parseInt(item[0]),
-          item[1],
-          Double.parseDouble(item[2]),
-          Integer.parseInt(item[3]));
+          Integer.parseInt(dadosProduto[0]),
+          dadosProduto[1],
+          Double.parseDouble(dadosProduto[2]),
+          Integer.parseInt(dadosProduto[3]));
     }
   }
 
   public static ArrayList<Produto> getListaProdutos() {
-    return products;
+    return produtos;
   }
 
   public static boolean cadastrarProduto(int id, String nome, double preco, int quantidadeEstoque) {
-    return cadastrarProduto(new Produto(id, nome, preco, quantidadeEstoque));
-  }
-
-  public static boolean cadastrarProduto(Produto produto) {
-    if (encontrarProduto(produto.getNome()) != null) {
+    if (encontrarProduto(nome) != null) {
       return false;
     }
 
-    products.add(produto);
+    produtos.add(new Produto(id, nome, preco, quantidadeEstoque));
 
     return true;
   }
@@ -59,22 +55,34 @@ public class Estoque {
     return null;
   }
 
-  public static void imprimirListaProdutos() {
-    System.out.println("CATALOGO");
-    System.out.println(" ---------------------------------------------------");
+  public static void baixarEstoque(int id, int quantidade) {
+    Produto produto = encontrarProduto(id);
 
-    System.out.printf("| ID   | NOME             | PRECO      | QUANTIDADE |\n");
-    System.out.println("|---------------------------------------------------|");
+    if (produto == null) {
+      System.out.println("\nProduto nao encontrado!");
+
+      return;
+    }
+
+    produto.baixarEstoque(quantidade);
+  }
+
+  public static void imprimirListaProdutos() {
+    System.out.println("\n------------------------------------------------------");
+    System.out.println("|                      CATALOGO                      |");
+    System.out.println("|----------------------------------------------------|");
+    System.out.println("| ID   | NOME             | PRECO      | QUANTIDADE  |");
+    System.out.println("|----------------------------------------------------|");
 
     for (Produto produto : getListaProdutos()) {
       System.out.printf(
-          "| %-4d | %-16s | R$%-8.2f | %-11d| \n",
+          "| %-4d | %-16s | R$%-8.2f | %-12d| \n",
           produto.getId(),
           produto.getNome(),
           produto.getPreco(),
           produto.getQuantidadeEstoque());
     }
 
-    System.out.println(" ---------------------------------------------------");
+    System.out.println("------------------------------------------------------");
   }
 }

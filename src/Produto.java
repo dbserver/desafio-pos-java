@@ -19,19 +19,19 @@ public class Produto {
     return nome;
   }
 
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
-
   public double getPreco() {
     return preco;
   }
 
-  public void setPreco(double preco) {
-    this.preco = preco;
-  }
-
   public int getQuantidadeEstoque() {
     return quantidadeEstoque;
+  }
+
+  public void baixarEstoque(int quantidade) {
+    setQuantidadeEstoque(getQuantidadeEstoque() - quantidade);
+  }
+
+  private void setQuantidadeEstoque(int quantidadeEstoque) {
+    this.quantidadeEstoque = quantidadeEstoque;
   }
 }

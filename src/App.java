@@ -1,18 +1,18 @@
 import java.io.File;
 
-import Utils.InputReader;
+import utils.InputReader;
 
 public class App {
-  public static final String ResourcesPath = System.getProperty("user.dir") + File.separator + "resources";
+  public static final String DiretorioResources = System.getProperty("user.dir") + File.separator + "resources";
 
   public static void main(String[] args) throws Exception {
     Estoque.inicializar();
 
-    boolean exit = false;
+    boolean sair = false;
     do {
-      exit = Menu.selecionarOpcao();
-    } while (!exit);
+      sair = Menu.selecionarOpcao();
+    } while (!sair);
 
-    InputReader.close();
+    InputReader.finalizar();
   }
 }
