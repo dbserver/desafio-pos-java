@@ -3,31 +3,31 @@ package utils;
 import java.util.Scanner;
 
 public class InputReader {
-  private static final Scanner scan = new Scanner(System.in);
+    private static final Scanner scan = new Scanner(System.in);
 
-  public static String getString(String mensagem) {
-    if (mensagem != null)
-      System.out.print(mensagem);
+    public static String getString(String mensagem) {
+        if (mensagem != null)
+            System.out.print(mensagem);
 
-    return scan.nextLine();
-  }
+        return scan.nextLine();
+    }
 
-  public static int getInt(String mensagem) {
-    if (mensagem != null)
-      System.out.print(mensagem);
+    public static int getInt(String mensagem) {
+        if (mensagem != null)
+            System.out.print(mensagem);
 
-    int resultado = scan.nextInt();
+        int resultado = scan.nextInt();
 
-    limparSobrasBuffer();
+        limparSobrasBuffer();
 
-    return resultado;
-  }
+        return resultado;
+    }
 
-  public static void finalizar() {
-    scan.close();
-  }
+    public static void finalizar() {
+        scan.close();
+    }
 
-  private static void limparSobrasBuffer() {
-    scan.nextLine();
-  }
+    private static void limparSobrasBuffer() {
+        scan.nextLine();
+    }
 }
